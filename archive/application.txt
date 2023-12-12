@@ -1,0 +1,18 @@
+@echo off
+
+echo looking through files selected...
+
+setlocal EnableExtensions DisableDelayedExpansion
+pushd "%~dp0"
+
+:upload_loop
+ IF "%1"=="" GOTO completed
+  "C:\Program Files\Python310\python.exe" "A:\Data Files\Scripts\RightClickConvert\main.py" %1
+  SHIFT
+  GOTO upload_loop
+:completed
+
+popd
+endlocal
+
+pause
